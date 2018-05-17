@@ -20,19 +20,31 @@ public class Food {
 	}
 	
 	public void createFood(){
-		Scanner input = new Scanner(System.in);
-		System.out.println("Enter your food code: ");
-		ID = input.next();
-		System.out.println("Enter your food name: ");
-		name = input.next();
-		System.out.println("Enter your food price: ");
-		price = input.nextDouble();
-	}
-	public void showFood(){
-		System.out.println("'"+ID+"'\t\t'"+name+"'\t\t'"+price+"'");
-	}
-	public String toString() {
-		return " Food [ ID = " + ID + ", name = " + name + ", price = " + price + "]";
+	
+		Scanner input = new Scanner(System.in);		
+		try {
+			do {
+				System.out.print("Enter your food code:  ");
+				ID = input.nextLine();
+				System.out.print("Enter your food name:  ");
+				name = input.nextLine();
+				System.out.print("Enter your food price:  ");
+			    while (!input.hasNextDouble()) {
+		              System.out.print("You must enter a valid number! Try again: ");
+		              input.next();
+		        }
+				price = input.nextDouble();
+				System.out.print("Do you want to add more food ?[Y/N]:   ");
+			    input.nextLine();
+			} while (input.nextLine().equalsIgnoreCase("y"));
+			
+			
+		}finally {
+		          input.close();
+		}		
 	}
 	
+	public String toString() {
+		return " Food [ '"+ID+"'\t\t'"+name+"'\t\t'"+price+"']";
+	}
 }

@@ -30,19 +30,34 @@ public class Table {
 		this.available = busy;
 	}
 	
-	public void createTable() {
+public void createTable() {
 		
-		System.out.println("Enter your table No: ");
-		ID = input.next();
-		System.out.println("Enter number of seats: ");
-		numSeats = input.nextInt();
-	
+		Scanner input = new Scanner(System.in);
+		try {
+			do {
+				System.out.print("Enter your table No:  ");
+				ID = input.nextLine();
+				System.out.print("Enter number of seats:  ");
+				
+				
+				while (!input.hasNextInt()) {
+		            System.out.print("You must enter a valid number! Try again: ");
+		            input.next();
+			    }
+				numSeats = input.nextInt();
+				
+				System.out.println("Do you want to take more reservation?[Y/N]");
+				input.nextLine().trim();
+			 } while (input.nextLine().equalsIgnoreCase("y"));
+		}finally {
+	          input.close();
+	    }		
 	}
-	public void showTable() {
+	public String toString() {
 		if(available!=false) {
-			System.out.println("Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Free'");
+			return "Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Free'";
 		}else {
-			System.out.println("Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Busy'");
+			return "Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Busy'";
 		}
 	}
 	public int getReserveTable() {

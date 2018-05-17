@@ -2,11 +2,10 @@ package RestuarantReservation;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Reservation implements CRUD<Booking>{
 	
-	private List<Booking> reservationList;
+	private List<Booking> reservationList = new ArrayList<Booking>();
 	
 	public List<Booking> getReservationList() {
 		return reservationList;
@@ -27,17 +26,15 @@ public class Reservation implements CRUD<Booking>{
 	}
 
 	public ArrayList<Booking> read() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public void update(Booking b) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void delete(Booking b) {
-		// TODO Auto-generated method stub
 		
 	}
 

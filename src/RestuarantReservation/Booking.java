@@ -31,6 +31,7 @@ public class Booking {
 	}
 	
 	public void reservedBooking() {
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter Booking Id :");
 		ID = input.nextInt();
