@@ -1,13 +1,19 @@
 package RestuarantReservation;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import RestuarantReservation.Table;
 
 public class Booking {
 	private int ID;
-	private List<Table> reservedTable;
+	private List<Table> reservedTable = new ArrayList<Table>();
 	private String customerName;
 	private String customerNo;
+	
+	public Booking() {
+		
+	}
 	
 	public Booking(int ID, List<Table> reservedTable, String customerName, String customerNo) {
 		this.ID = ID;
@@ -31,9 +37,17 @@ public class Booking {
 		System.out.println("Enter Customer Name :");
 		customerName = input.next();
 		System.out.println("Enter Customer No :");
-		customerNo = input.nextLine();
-		Table t = new Table();
-		t.createTable();
+		customerNo = input.next();
+		System.out.println("How many table you want to book? :");
+		int n = input.nextInt();
+		Table[] bookTable = new Table[n];
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter table number you want to reserve :");
+			bookTable[i] = new Table();
+			bookTable[i].setReserveTable(input.nextInt());
+			reservedTable.add(bookTable[i]);
+//			System.out.println(reservedTable.get(i).getReserveTable());
+		}
 	}
 	
 	public String toString() {

@@ -7,8 +7,7 @@ public class Table {
 	private int numSeats;
 	private String ID;
 	private boolean available;
-	private int reservedSeats;
-	private String tableID;
+	private int reserveTable;
 	Scanner input = new Scanner(System.in);
 	
 	public Table(int numSeats, String ID, boolean available) {
@@ -21,22 +20,6 @@ public class Table {
 		numSeats = 0;
 		ID = "Null";
 		available = true;
-	}
-	
-	public int getReservedSeats() {
-		return reservedSeats;
-	}
-
-	public void setReservedSeats(int reservedSeats) {
-		this.reservedSeats = reservedSeats;
-	}
-
-	public String getTableID() {
-		return tableID;
-	}
-
-	public void setTableID(String tableID) {
-		this.tableID = tableID;
 	}
 
 	public boolean getOccupied() {
@@ -57,20 +40,16 @@ public class Table {
 	}
 	public void showTable() {
 		if(available!=false) {
-			System.out.println("Table#"+ID+"\t\tSeats: "+numSeats+"\t\tStatus: 'Free'");
+			System.out.println("Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Free'");
 		}else {
-			System.out.println("Table#"+ID+"\t\tSeats: "+numSeats+"\t\tStatus: 'Busy'");
+			System.out.println("Table#'"+ID+"'\t\tSeats: '"+numSeats+"'\t\tStatus: 'Busy'");
 		}
 	}
-	public void reservedTable() {
-		System.out.println("How many tables do you want to book? :");
-		setReservedSeats(input.nextInt());
-		for (int i = 0; i < getReservedSeats(); i++) {
-			System.out.println("Enter table number you want to reserve :");
-		}
+	public int getReserveTable() {
+		return reserveTable;
 	}
-	public String toString() {
-		return " Table [ numSeats = " + numSeats + ", ID = " + ID + ", available = " + available + "]";
+
+	public void setReserveTable(int reserveTable) {
+		this.reserveTable = reserveTable;
 	}
-	
 }

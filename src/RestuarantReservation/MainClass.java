@@ -15,5 +15,10 @@ public class MainClass {
 		System.out.println("	========  (9)==Exit--the--Program	========");
 		System.out.println("================================================================");
 		System.out.println("================  Please--Input--Your--Choice : ");
+		Booking b = new Booking();
+		b.reservedBooking();
+//		Table t = new Table();
+//		t.createTable();
+//		t.showTable();
 	}
 }
